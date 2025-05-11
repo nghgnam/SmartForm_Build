@@ -14,6 +14,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
+import { DynamicFormComponent } from '../features/form-builder/components/dynamic-form/dynamic-form/dynamic-form.component';
+
 const MATERIAL_MODULES = [
   MatInputModule,
   MatSelectModule,
@@ -29,7 +31,7 @@ const MATERIAL_MODULES = [
 ];
 
 @NgModule({
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, ...MATERIAL_MODULES],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, DynamicFormComponent, ...MATERIAL_MODULES],
   exports: [CommonModule, FormsModule, ReactiveFormsModule, ...MATERIAL_MODULES]
 })
 export class SharedModule {}

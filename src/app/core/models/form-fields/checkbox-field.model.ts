@@ -9,7 +9,7 @@ export class CheckboxType extends FormField<string>{
         value: string,
         required: false,
         placeholder?: string,
-        public options: { label: string, value: string }[] = [],
+        public override options: { label: string, value: string }[] = [],
     )
     {
         super(key, label, value, required, placeholder)

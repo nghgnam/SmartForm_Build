@@ -1,15 +1,25 @@
 import { FieldType } from "./field-type.enum";
 import { FormField } from "./form-fields.model";
-import { ValidatorFn, Validators } from "@angular/forms";
-export class EmailType extends FormField<string>{
-    override get type(): FieldType{
-        return FieldType.EMAIL;
-    }
-    override get placeholderType(): string{
-        return "Nhập đầy đủ mail";
-    }
-    override get validators(): ValidatorFn[]{
-        const base = super.validators;
-        return [...base, Validators.email]
-    }
+import { Validators } from "@angular/forms";
+
+export class EmailField extends FormField<string> {
+  constructor(
+    key: string,
+    label: string,
+    value: string,
+    required: boolean = false,
+    placeholder?: string
+  ) {
+    super(key, label, value, required, placeholder);
+  }
+
+  override get type(): FieldType {
+    return FieldType.EMAIL;
+  }
+
+  override get validators() {
+    const validators = super.validators;
+    validators.push(Validators.email);
+    return validators;
+  }
 }
