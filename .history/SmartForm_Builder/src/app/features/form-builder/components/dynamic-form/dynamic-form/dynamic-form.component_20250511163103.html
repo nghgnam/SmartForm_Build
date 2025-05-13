@@ -1,0 +1,106 @@
+<ng-container *ngFor="let field of fields">
+    <div [formGroup]="formGroup">
+        <ng-container [ngSwitch]="field.type">
+
+            <mat-form-field *ngSwitchCase="'text'" appearance="outline">
+                <mat-label>{{field.label}}</mat-label>
+                <input matInput [formControlName]="field.key" [placeholder]="field.placeholder" />
+                <mat-error *ngIf="formGroup.controls[field.key].invalid && formGroup.controls[field.key].touched">
+                    {{field.validators.required ? "This field is required" : "Invalid input"}}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field *ngSwitchCase="'number'" appearance="outline">
+                <mat-label>{{field.label}}</mat-label>
+                <input matInput [formControlName]="field.key" [placeholder]="field.placeholder" type="number" />
+                <mat-error *ngIf="formGroup.controls[field.key].invalid && formGroup.controls[field.key].touched">
+                    {{field.validators.required ? "This field is required" : "Invalid input"}}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field *ngSwitchCase="'email'" appearance="outline">
+                <mat-label>{{field.label}}</mat-label>
+                <input matInput [formControlName]="field.key" [placeholder]="field.placeholder" type="email" />
+                <mat-error *ngIf="formGroup.controls[field.key].invalid && formGroup.controls[field.key].touched">
+                    {{field.validators.required ? "This field is required" : "Invalid input"}}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field *ngSwitchCase="'date'" appearance="outline">
+                <mat-label>{{field.label}}</mat-label>
+                <input matInput [matDatepicker]="picker" [formControlName]="field.key" [placeholder]="field.placeholder" />
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="formGroup.controls[field.key].invalid && formGroup.controls[field.key].touched">
+                    {{field.validators.required ? "This field is required" : "Invalid input"}}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field *ngSwitchCase="'select'" appearance="outline">
+                <mat-label>{{field.label}}</mat-label>
+                <mat-select [formControlName]="field.key" [placeholder]="field.placeholder">
+                    <mat-option *ngFor="let option of field.options" [value]="option.value">
+                        {{option.label}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="formGroup.controls[field.key].invalid && formGroup.controls[field.key].touched">
+                    {{field.validators.required ? "This field is required" : "Invalid input"}}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field *ngSwitchCase="'radio'" appearance="outline">
+                <mat-label>{{field.label}}</mat-label>
+                <mat-radio-group [formControlName]="field.key">
+                    <mat-radio-button *ngFor="let option of field.options" [value]="option.value">
+                        {{option.label}}
+                    </mat-radio-button>
+                </mat-radio-group>
+                <mat-error *ngIf="formGroup.controls[field.key].invalid && formGroup.controls[field.key].touched">
+                    {{field.validators.required ? "This field is required" : "Invalid input"}}
+                </mat-error>
+            </mat-form-field>
+
+            <div *ngSwitchCase="'checkbox'" class="checkbox-container">
+                <mat-checkbox [formControlName]="field.key">
+                    {{field.label}}
+                </mat-checkbox>
+                <mat-error *ngIf="formGroup.controls[field.key].invalid && formGroup.controls[field.key].touched">
+                    {{field.validators.required ? "This field is required" : "Invalid input"}}
+                </mat-error>
+            </div>
+
+            <mat-form-field *ngSwitchCase="'phone'" appearance="outline">
+                <mat-label>{{field.label}}</mat-label>
+                <input matInput [formControlName]="field.key" [placeholder]="field.placeholder" type="tel" />
+                <mat-error *ngIf="formGroup.controls[field.key].invalid && formGroup.controls[field.key].touched">
+                    {{field.validators.required ? "This field is required" : "Invalid input"}}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field *ngSwitchCase="'textarea'" appearance="outline">    
+                <mat-label>{{field.label}}</mat-label>    
+                <textarea matInput [formControlName]="field.key" [placeholder]="field.placeholder"></textarea>
+                <mat-error *ngIf="formGroup.controls[field.key].invalid && formGroup.controls[field.key].touched">
+                    {{field.validators.required ? "This field is required" : "Invalid input"}}
+                </mat-error>
+            </mat-form-field>
+            
+            <mat-form-field *ngSwitchCase="'password'" appearance="outline">
+                <mat-label>{{field.label}}</mat-label>
+                <input matInput [formControlName]="field.key" [placeholder]="field.placeholder" type="password" />
+                <mat-error *ngIf="formGroup.controls[field.key].invalid && formGroup.controls[field.key].touched">
+                    {{field.validators.required ? "This field is required" : "Invalid input"}}
+                </mat-error>
+            </mat-form-field>
+
+            <div *ngSwitchCase="'file_upload'" class="file-upload-container">
+                <label>{{field.label}}</label>
+                <input type="file" [formControlName]="field.key" />
+                <mat-error *ngIf="formGroup.controls[field.key].invalid && formGroup.controls[field.key].touched">
+                    {{field.validators.required ? "This field is required" : "Invalid input"}}
+                </mat-error>
+            </div>
+            
+        </ng-container>
+    </div>
+</ng-container>

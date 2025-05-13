@@ -1,0 +1,10 @@
+import { FieldType } from "./field-type.enum";
+import { FieldConfig } from "../../config/field-config.interface"
+
+export const FieldConfigmap: Record<FieldType, FieldConfig> ={
+    [FieldType.TEXT]:{
+        label: 'Trường văn bản',
+        inputType: 'text'
+    },
+    
+}

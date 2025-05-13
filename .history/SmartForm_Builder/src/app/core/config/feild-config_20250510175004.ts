@@ -1,0 +1,7 @@
+interface FieldConfig{
+    label: string;
+    inputType: string;
+    hasOptions?: boolean;
+    hasMinMax?: boolean;
+     
+}
