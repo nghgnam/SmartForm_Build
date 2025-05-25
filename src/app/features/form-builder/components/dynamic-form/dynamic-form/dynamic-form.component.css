@@ -1,0 +1,35 @@
+.checkbox-container {
+    margin: 16px 0;
+    padding: 0 16px;
+}
+
+.file-upload-container {
+    margin: 16px 0;
+    padding: 0 16px;
+}
+
+.file-upload-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
+}
+
+.file-upload-container input[type="file"] {
+    display: block;
+    margin-top: 8px;
+}
+
+mat-error {
+    color: #f44336;
+    font-size: 12px;
+    margin-top: 4px;
+}
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-mdc-form-field + .mat-mdc-form-field {
+  margin-left: 8px;
+}
