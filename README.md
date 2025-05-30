@@ -1,27 +1,45 @@
-# SmartFormBuilder
+# SmartForm Builder
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
+A full-stack application for building and managing smart forms.
 
-## Development server
+## Project Structure
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```
+SmartFormBuilder/
+├── backend/           # Backend application (Node.js/Express)
+│   ├── src/          # Source code
+│   ├── tests/        # Test files
+│   └── package.json  # Backend dependencies
+│
+├── frontend/         # Frontend application (Angular)
+│   ├── src/         # Source code
+│   ├── e2e/         # End-to-end tests
+│   └── package.json # Frontend dependencies
+│
+└── README.md        # Project documentation
+```
 
-## Code scaffolding
+## Setup Instructions
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Backend Setup
+1. Navigate to backend directory: `cd backend`
+2. Install dependencies: `npm install`
+3. Start development server: `npm run dev`
 
-## Build
+### Frontend Setup
+1. Navigate to frontend directory: `cd frontend`
+2. Install dependencies: `npm install`
+3. Start development server: `ng serve`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Development
 
-## Running unit tests
+Both frontend and backend are now managed in a single repository for easier development and deployment.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Backend
+- Port: 3000
+- API Documentation: `/api/docs`
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Frontend
+- Port: 4200
+- Angular Material UI
+- Dynamic Form Builder
