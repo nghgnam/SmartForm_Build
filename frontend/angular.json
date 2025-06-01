@@ -5,17 +5,28 @@
   "projects": {
     "SmartForm_Builder": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/smart-form-builder",
             "index": "src/index.html",
-            "browser": "src/main.ts",
+            "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -29,12 +40,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -54,8 +60,12 @@
             },
             "development": {
               "optimization": false,
+              "sourceMap": true,
+              "namedChunks": true,
               "extractLicenses": false,
-              "sourceMap": true
+              "vendorChunk": true,
+              "buildOptimizer": false,
+              "aot": false
             }
           },
           "defaultConfiguration": "production"
@@ -73,7 +83,10 @@
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "SmartForm_Builder:build"
+          }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -96,6 +109,11 @@
           }
         }
       }
+    }
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "standalone": false
     }
   },
   "cli": {
